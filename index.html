@@ -4,38 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>cosmosnews</title>
-  <!-- Tailwind CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <!-- Font -->
+  <script type="module" src="https://cdn.skypack.dev/twind/shim"></script>
   <link href="https://api.fontshare.com/v2/css?f[]=array@400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+  <script src="script.js" type="module"></script>
 </head>
 
-<body class="bg-gray-800 text-gray-200 h-screen w-screen">
+<body class="bg-gray-800 text-gray-200 h-screen w-screen flex flex-col">
   <!-- Header -->
   <header class="bg-black py-4">
     <h1 class="text-3xl font-bold text-center">cosmosnews</h1>
   </header>
   <!-- Landing Section -->
-  <section>
-    <h2 class="text-xl md:text-lg font-bold">Explore the Cosmos</h2>
-    <p class="mt-2">Discover the latest in space exploration and scientific research.</p>
-  </section>
-  <!-- About Us Section -->
-  <!-- <section id="about" class="reveal p-8 text-center mt-8">
-    <h2 class="text-3xl font-bold">About Us</h2>
-    <p>Information about Space Explorer's purpose and mission.</p>
-  </section> -->
-  <!-- Footer -->
-  
-  <!-- <div id="star-container" class="star-container"> -->
-    <!-- <div class="shooting-star" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
-    <div class="shooting-star" style="top: 40%; left: 30%; animation-delay: 1s;"></div>
-    <div class="shooting-star" style="top: 60%; left: 50%; animation-delay: 2s;"></div>
-    <div class="shooting-star" style="top: 80%; left: 70%; animation-delay: 3s;"></div> -->
-  <!-- </div> -->
-  <footer class="text-center absolute bottom-0 bg-black">
+  <section id="news-container"></section>
+  <footer class="text-center bg-black mt-auto py-4">
     <p>&copy; 2024 cosmosnews. All Rights Reserved.</p>
   </footer>
 </body>

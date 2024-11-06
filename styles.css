@@ -1,36 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz@0,9..40;1,9..40&display=swap');
+
 :root {
   --title_font: "Array", sans-serif;
+  --body_font: "DM Sans", sans-serif;
 }
 
-h1, h2, h3 {
-  font-family: var(--title_font);
+* {
+  font-family: var(--body_font);
 }
 
-.shooting-star {
-  position: absolute;
-  width: 2px;
-  height: 100px;
-  background: linear-gradient(white, rgba(255, 255, 255, 0));
-  animation: shoot 3s linear infinite;
+* h1 {nt-family: "Array", sans-serif;
 }
 
-@keyframes shoot {
-  0% {
-    transform: translate(0, 0) rotate(45deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(100vw, -100vh) rotate(45deg);
-    opacity: 0;
-  }
-}
-
-.star-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  pointer-events: none;
-}
