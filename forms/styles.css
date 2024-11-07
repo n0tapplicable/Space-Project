@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: url('https://www.nasa.gov/sites/default/files/thumbnails/image/pia23645-16.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+#solar-system {
+  position: relative;
+  width: 100vw;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orbit {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: spin infinite linear;
+}
+
+.orbit.sun-orbit { width: 0; height: 0; }
+.orbit.mercury-orbit { width: 100px; height: 100px; animation-duration: 10s; }
+.orbit.venus-orbit { width: 150px; height: 150px; animation-duration: 20s; }
+.orbit.earth-orbit { width: 200px; height: 200px; animation-duration: 30s; }
+.orbit.mars-orbit { width: 250px; height: 250px; animation-duration: 40s; }
+.orbit.jupiter-orbit { width: 300px; height: 300px; animation-duration: 50s; }
+.orbit.saturn-orbit { width: 350px; height: 350px; animation-duration: 60s; }
+.orbit.uranus-orbit { width: 400px; height: 400px; animation-duration: 70s; }
+.orbit.neptune-orbit { width: 450px; height: 450px; animation-duration: 80s; }
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.planet {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: -50% -50%;
+  border-radius: 50%;
+}
+
+.planet.sun { background-color: yellow; width: 50px; height: 50px; }
+.planet.mercury { background-color: gray; width: 10px; height: 10px; transform: translate(-50%, -50%) rotate(0deg) translateX(50px); }
+.planet.venus { background-color: orange; width: 15px; height: 15px; transform: translate(-50%, -50%) rotate(0deg) translateX(75px); }
+.planet.earth { background-color: blue; width: 20px; height: 20px; transform: translate(-50%, -50%) rotate(0deg) translateX(100px); }
+.planet.mars { background-color: red; width: 15px; height: 15px; transform: translate(-50%, -50%) rotate(0deg) translateX(125px); }
+.planet.jupiter { background-color: brown; width: 30px; height: 30px; transform: translate(-50%, -50%) rotate(0deg) translateX(150px); }
+.planet.saturn { background-color: gold; width: 25px; height: 25px; transform: translate(-50%, -50%) rotate(0deg) translateX(175px); }
+.planet.uranus { background-color: lightblue; width: 20px; height: 20px; transform: translate(-50%, -50%) rotate(0deg) translateX(200px); }
+.planet.neptune { background-color: darkblue; width: 20px; height: 20px; transform: translate(-50%, -50%) rotate(0deg) translateX(225px); }
+
+.planet-label {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: white;
+}
+
+.controls {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.hidden {
+  display: none;
+}
