@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,20 +7,21 @@
   <title>cosmosnews</title>
   <!-- Font -->
   <script type="module" src="https://cdn.skypack.dev/twind/shim"></script>
-  <link href="https://api.fontshare.com/v2/css?f[]=array@400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" type="module"></script>
 </head>
 
-<body class="bg-gray-800 text-gray-200 h-screen w-screen flex flex-col">
-  <!-- Header -->
-  <header class="bg-black py-4">
-    <h1 class="text-3xl font-bold text-center">cosmosnews</h1>
+<body class="bg-[#eeeeee] text-[#151515] dark:bg-[#151515] dark:text-[#EEEEEE] h-screen w-screen flex flex-col">
+  <header class="py-2 text-3xl font-bold text-center">
+    <span>cosmosnews</span>
   </header>
-  <!-- Landing Section -->
   <section id="news-container"></section>
-  <footer class="text-center bg-black mt-auto py-4">
-    <p>&copy; 2024 cosmosnews. All Rights Reserved.</p>
+  <div class="flex justify-center space-x-4 mt-4">
+    <button id="previous" class="bg-[#FC6736] hover:bg-[#FF6500] text-white py-2 px-4 rounded-sm">Previous</button>
+    <button id="next" class="bg-[#FC6736] hover:bg-[#FF6500] text-white py-2 px-4 rounded-sm">Next</button>
+    
+  </div>
+  <footer class="text-center mt-auto py-4">&copy; 2024 cosmosnews. made by gulabjamun and babbage.
   </footer>
 </body>
 </html>
