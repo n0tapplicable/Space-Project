@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solar System Explorer</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-black text-white flex flex-col items-center justify-between min-h-screen">
+
+  <!-- Solar System Container -->
+  <div id="solar-system" class="relative flex items-center justify-center w-full h-[60vh] my-4">
+    <!-- Sun and Planets with orbits -->
+    <div class="planet sun" data-name="Sun"></div>
+    <div class="orbit mercury-orbit">
+      <div class="planet mercury" data-name="Mercury"></div>
+    </div>
+    <div class="orbit venus-orbit">
+      <div class="planet venus" data-name="Venus"></div>
+    </div>
+    <div class="orbit earth-orbit">
+      <div class="planet earth" data-name="Earth"></div>
+    </div>
+    <div class="orbit mars-orbit">
+      <div class="planet mars" data-name="Mars"></div>
+    </div>
+    <div class="orbit jupiter-orbit">
+      <div class="planet jupiter" data-name="Jupiter"></div>
+    </div>
+    <div class="orbit saturn-orbit">
+      <div class="planet saturn" data-name="Saturn"></div>
+    </div>
+    <div class="orbit uranus-orbit">
+      <div class="planet uranus" data-name="Uranus"></div>
+    </div>
+    <div class="orbit neptune-orbit">
+      <div class="planet neptune" data-name="Neptune"></div>
+    </div>
+  </div>
+
+  <!-- Planet Details -->
+  <div id="planet-details" class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex flex-col items-center justify-center">
+    <button id="close-details" class="absolute top-2 right-2 text-lg font-bold text-white">&times;</button>
+    <h3 id="planet-name" class="text-xl font-bold"></h3>
+    <p id="planet-info" class="mt-2"></p>
+  </div>
+
+  <!-- Controls -->
+  <div class="controls w-full bg-gray-800 p-3 flex flex-col items-center space-y-3 rounded-t-lg">
+    <div class="flex items-center space-x-4">
+      <label for="planet-dropdown" class="text-sm font-medium">Select a Planet:</label>
+      <select id="planet-dropdown" class="text-black px-2 py-1 rounded">
+        <option value="Sun">Sun</option>
+        <option value="Mercury">Mercury</option>
+        <option value="Venus">Venus</option>
+        <option value="Earth">Earth</option>
+        <option value="Mars">Mars</option>
+        <option value="Jupiter">Jupiter</option>
+        <option value="Saturn">Saturn</option>
+        <option value="Uranus">Uranus</option>
+        <option value="Neptune">Neptune</option>
+      </select>
+    </div>
+
+    <div class="flex items-center space-x-4">
+      <label for="planet1" class="text-sm font-medium">Planet 1:</label>
+      <select id="planet1" class="text-black px-2 py-1 rounded">
+        <option value="Sun">Sun</option>
+        <option value="Mercury">Mercury</option>
+        <option value="Venus">Venus</option>
+        <option value="Earth">Earth</option>
+        <option value="Mars">Mars</option>
+        <option value="Jupiter">Jupiter</option>
+        <option value="Saturn">Saturn</option>
+        <option value="Uranus">Uranus</option>
+        <option value="Neptune">Neptune</option>
+      </select>
+
+      <label for="planet2" class="text-sm font-medium">Planet 2:</label>
+      <select id="planet2" class="text-black px-2 py-1 rounded">
+        <option value="Sun">Sun</option>
+        <option value="Mercury">Mercury</option>
+        <option value="Venus">Venus</option>
+        <option value="Earth">Earth</option>
+        <option value="Mars">Mars</option>
+        <option value="Jupiter">Jupiter</option>
+        <option value="Saturn">Saturn</option>
+        <option value="Uranus">Uranus</option>
+        <option value="Neptune">Neptune</option>
+      </select>
+    </div>
+    <button id="calculate-distance" class="mt-2 px-3 py-1 bg-blue-600 rounded text-xs w-full">Calculate Distance</button>
+    <p id="distance-result" class="text-sm mt-1 text-center">Distance: 0 million km</p>
+
+    <!-- Size Comparison Slider -->
+    <div class="mt-3 w-full">
+      <label for="size-slider" class="block text-xs font-medium">Increase the size of the Sun:</label>
+      <input type="range" id="size-slider" min="1" max="3" step="0.1" value="1" class="w-full mt-1">
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
