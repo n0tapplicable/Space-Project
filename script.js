@@ -2,7 +2,6 @@ import { create, setup, cssomSheet } from 'https://cdn.skypack.dev/twind'
 setup({ darkMode: 'class' })
 // import { create, cssomSheet } from 'twind'
 const sheet = cssomSheet({ target: new CSSStyleSheet() })
-// 2. Use that to create an own twind instance
 const { tw } = create({ sheet })
 
 const sharedStyles = new CSSStyleSheet();
@@ -27,6 +26,7 @@ class NewsCard extends HTMLElement {
     newsCard.innerHTML = 
     `
       <img
+        loading="lazy"
         src="${props.image_url || 'default.jpg'}"
         alt="${!props.image_url ? props.title : "The data source didn't provide an image"}"
         title="${props.title}"
