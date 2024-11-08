@@ -2,3 +2,16 @@
 * {
   font-family: "Space Grotesk", sans-serif;
 }
+body.light-theme, body.dark-theme {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body.light-theme {
+  background-color: white;
+  color: black;
+}
+
+body.dark-theme {
+  background-color: black;
+  color: white;
+}
