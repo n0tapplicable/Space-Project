@@ -5,23 +5,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>cosmosnews</title>
-  <!-- Font -->
   <script type="module" src="https://cdn.skypack.dev/twind/shim"></script>
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" type="module"></script>
 </head>
 
 <body class="bg-[#eeeeee] text-[#151515] dark:bg-[#151515] dark:text-[#EEEEEE] h-screen w-screen flex flex-col">
-  <header class="py-2 text-3xl font-bold text-center">
+  <header class="py-2 text-3xl font-bold text-center flex justify-between items-center px-4">
     <span>cosmosnews</span>
+    <button id="theme-toggle" class="text-sm bg-[#FC6736] hover:bg-[#FF6500] text-white py-2 px-4 rounded-sm">Toggle Theme</button>
   </header>
   <section id="news-container"></section>
   <div class="flex justify-center space-x-4 mt-4">
     <button id="previous" class="bg-[#FC6736] hover:bg-[#FF6500] text-white py-2 px-4 rounded-sm">Previous</button>
     <button id="next" class="bg-[#FC6736] hover:bg-[#FF6500] text-white py-2 px-4 rounded-sm">Next</button>
-    
   </div>
-  <footer class="text-center mt-auto py-4">&copy; 2024 cosmosnews. made by gulabjamun and babbage.
+  <footer class="text-center mt-auto py-4">&copy; 2024 cosmosnews. made by cabbage and babbage.
   </footer>
 </body>
 </html>

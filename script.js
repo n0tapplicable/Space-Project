@@ -1,5 +1,5 @@
-import { create, cssomSheet } from 'https://cdn.skypack.dev/twind'
-
+import { create, setup, cssomSheet } from 'https://cdn.skypack.dev/twind'
+setup({ darkMode: 'class' })
 // import { create, cssomSheet } from 'twind'
 const sheet = cssomSheet({ target: new CSSStyleSheet() })
 // 2. Use that to create an own twind instance
@@ -20,21 +20,23 @@ class NewsCard extends HTMLElement {
     const newsCard = document.createElement('div');
     newsCard.classList = tw`
     bg-[#1E3E62]
-    flex flex-col md:flex-row md:h-64 h-256
+    flex flex-col h-96
     shadow-lg rounded-md
-    overflow-x-wrap
+    overflow-x-wrap 
   `;
     newsCard.innerHTML = 
     `
       <img
         src="${props.image_url || 'default.jpg'}"
-        alt="${this.getAttribute('title_meta') || 'News Image'}"
-        class="${tw`h-64 w-full md:h-64 md:w-64 object-cover rounded-sm mr-3`}">
-        <div class="${tw`flex flex-col flex-1 overflow-y-scroll p-2`}">
+        alt="${!props.image_url ? props.title : "The data source didn't provide an image"}"
+        title="${props.title}"
+        class="${tw`h-32 lg:hidden w-full object-cover rounded-t-sm`}">
+      <div class="${tw`flex flex-col overflow-y-auto`}">
+      <div class="${tw`p-2`}">
         <a href=${props.url} target="_blank"><h1 class="${tw`text-2xl hover:underline font-bold text-[#FC6736] font-semibold`}"> 
         ${props.title || 'News Title'}
         </h1></a>
-        <span class="${tw`font-bold text-xl mb-2`}">${props.news_site}<br>${new Date(props.published_at).toLocaleString('en-US', {
+        <span class="${tw`font-bold text-xl mb-2 text-[#7ED4AD]`}">${props.news_site}<br>${new Date(props.published_at).toLocaleString('en-US', {
           weekday: 'long',
           year: 'numeric',
           month: 'long',
@@ -47,20 +49,27 @@ class NewsCard extends HTMLElement {
           ${props.summary}
         </p>
       </div>
+        <img
+        src="${props.image_url || 'default.jpg'}"
+        alt="${!props.image_url ? props.title : "The data source didn't provide an image"}"
+        title="${props.title}"
+        class="${tw`hidden mt-4 h-64 lg:block w-full object-cover rounded-b-sm`}">
+      </div>
     `
     shadow.appendChild(newsCard);
   } 
 }
 customElements.define('news-card', NewsCard);
 const container = document.querySelector('#news-container')
-fetch('https://api.spaceflightnewsapi.net/v4/articles/?format=json&limit=10').then(data => data.json())
+const n_articles = 15
+fetch(`https://api.spaceflightnewsapi.net/v4/articles/?format=json&limit=${n_articles}`).then(data => data.json())
     .then(data => {
     container.classList = tw`
       flex flex-col p-3
       space-y-3
-      overflow-y-scroll
+      overflow-y-auto
       md:grid
-      md:grid-cols-2
+      md:grid-cols-3
       md:grid-rows-[repeat(5, minmax(100px))]
       md:gap-4
       md:space-y-2
@@ -80,7 +89,7 @@ next_button.addEventListener('click', () => {
   if (current_page > 0) {
     previous_button.style.display = 'block'
   }
-  fetch(`https://api.spaceflightnewsapi.net/v4/articles/?format=json&limit=10&offset=${current_page*10}`).then(data => data.json())
+  fetch(`https://api.spaceflightnewsapi.net/v4/articles/?format=json&limit=${n_articles}&offset=${current_page*n_articles}`).then(data => data.json())
     .then(data => {
       container.innerHTML = ''
       data.results.forEach(item => {
@@ -95,7 +104,7 @@ previous_button.addEventListener('click', () => {
   if (current_page == 0) {
     previous_button.style.display = 'none'
   }
-  fetch(`https://api.spaceflightnewsapi.net/v4/articles/?format=json&limit=10&offset=${current_page*10}`).then(data => data.json())
+  fetch(`https://api.spaceflightnewsapi.net/v4/articles/?format=json&limit=${n_articles}&offset=${current_page*n_articles}`).then(data => data.json())
     .then(data => {
       container.innerHTML = ''
       data.results.forEach(item => {
@@ -104,3 +113,20 @@ previous_button.addEventListener('click', () => {
       });
     })
 })
+
+const themeToggleButton = document.querySelector('#theme-toggle');
+themeToggleButton.addEventListener('click', () => {
+  document.documentElement.classList.toggle(tw`dark`);
+  if (document.documentElement.classList.contains(tw`dark`)) {
+    localStorage.setItem('theme', 'dark');
+  } else {
+    localStorage.setItem('theme', 'light');
+  }
+});
+
+// Load theme from localStorage
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add(tw`dark`);
+} else {
+  document.documentElement.classList.remove(tw`dark`);
+}
