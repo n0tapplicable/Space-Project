@@ -1,6 +1,4 @@
 import { create, setup, cssomSheet } from 'https://cdn.skypack.dev/twind'
-setup({ darkMode: 'class' })
-// import { create, cssomSheet } from 'twind'
 const sheet = cssomSheet({ target: new CSSStyleSheet() })
 const { tw } = create({ sheet })
 
@@ -114,26 +112,7 @@ previous_button.addEventListener('click', () => {
     })
 })
 
-//const themeToggleButton = document.querySelector('#theme-toggle');
-//themeToggleButton.addEventListener('click', () => {
-  //document.documentElement.classList.toggle(tw`dark`);
-  //if (document.documentElement.classList.contains(tw`dark`)) {
-    //localStorage.setItem('theme', 'dark');
-  //} else {
-  //  localStorage.setItem('theme', 'light');
- // }
-//});
-
-//Load theme from localStorage
-  //if (localStorage.getItem('theme') === 'dark') {
-    //document.documentElement.classList.add(tw`dark`);
-  //} else {
-  //document.documentElement.classList.remove(tw`dark`);
-  //}
-  //const toggleButton = document.getElementById('theme-toggle');
-
 const toggleButton = document.getElementById('theme-toggle');
-
 
 function applyTheme() {
   const savedTheme = localStorage.getItem('theme');
